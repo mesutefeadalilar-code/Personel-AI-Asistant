@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jarvis - Personal AI Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23FF9500'/%3E%3Ctext x='50' y='65' font-size='50' font-weight='bold' fill='white' text-anchor='middle'%3EJ%3C/text%3E%3C/svg%3E" alt="Jarvis">
+                <h1>Jarvis</h1>
+            </div>
+            <p class="tagline">Kişisel Yapay Zeka Asistanı</p>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Chat Area -->
+            <section class="chat-section">
+                <div class="chat-container">
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="message assistant-message">
+                            <div class="message-content">
+                                👋 Merhaba! Ben Jarvis, senin kişisel asistanın. Sana yardımcı olmak için buradayım!
+                            </div>
+                            <span class="message-time">Şimdi</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Input Area -->
+                <div class="input-area">
+                    <div class="input-group">
+                        <input 
+                            type="text" 
+                            id="userInput" 
+                            placeholder="Bir soru sor veya komut ver..."
+                            autocomplete="off"
+                        >
+                        <button class="btn-send" id="sendBtn" title="Gönder">
+                            <span>➤</span>
+                        </button>
+                    </div>
+                    <button class="btn-voice" id="voiceBtn" title="🎤 Sesli Komut">
+                        🎤 Sesli Komut
+                    </button>
+                </div>
+            </section>
+
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <!-- Quick Actions -->
+                <div class="card quick-actions">
+                    <h3>Hızlı İşlemler</h3>
+                    <button class="quick-btn" data-command="not ekle">
+                        📝 Not Ekle
+                    </button>
+                    <button class="quick-btn" data-command="notlarımı göster">
+                        📋 Notlarımı Göster
+                    </button>
+                    <button class="quick-btn" data-command="hatırlat">
+                        ⏰ Hatırlatma Ekle
+                    </button>
+                    <button class="quick-btn" data-command="yardım">
+                        ❓ Yardım
+                    </button>
+                </div>
+
+                <!-- Notes Panel -->
+                <div class="card notes-panel">
+                    <h3>Notlarım</h3>
+                    <div class="notes-list" id="notesList">
+                        <p class="empty-message">Henüz not yok</p>
+                    </div>
+                </div>
+
+                <!-- Stats -->
+                <div class="card stats">
+                    <h3>İstatistikler</h3>
+                    <div class="stat-item">
+                        <span>Toplam Notlar:</span>
+                        <strong id="totalNotes">0</strong>
+                    </div>
+                    <div class="stat-item">
+                        <span>Hatırlatmalar:</span>
+                        <strong id="totalReminders">0</strong>
+                    </div>
+                    <div class="stat-item">
+                        <span>Mesajlar:</span>
+                        <strong id="totalMessages">1</strong>
+                    </div>
+                </div>
+            </aside>
+        </main>
+    </div>
+
+    <!-- Modal for detailed notes -->
+    <div id="notesModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h2>Tüm Notlarım</h2>
+            <div id="fullNotesList" class="full-notes-list"></div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
